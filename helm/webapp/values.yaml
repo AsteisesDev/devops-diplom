@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: registry.gitlab.com/Asteises/devops-diplom/webapp
+  repository: ghcr.io/asteisesdev/devops-diplom/webapp
   tag: latest
   pullPolicy: IfNotPresent
 
