@@ -1,0 +1,10 @@
+.idea/
+*.swp
+*.bak
+.DS_Store
+
+CLAUDE.md
+main.md
+docs/
+scripts/
+monitoring/

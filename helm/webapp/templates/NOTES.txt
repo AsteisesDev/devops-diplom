@@ -1,0 +1,20 @@
+Приложение "{{ include "webapp.fullname" . }}" успешно развернуто!
+
+Количество реплик: {{ .Values.replicaCount }}
+
+{{- if .Values.ingress.enabled }}
+
+Доступ через Ingress:
+  http://{{ .Values.ingress.host }}
+
+  Убедитесь, что {{ .Values.ingress.host }} указывает на IP кластера.
+  Для Minikube добавьте в /etc/hosts:
+    $(minikube ip) {{ .Values.ingress.host }}
+
+  Или запустите: minikube tunnel
+{{- else }}
+
+Доступ через port-forward:
+  kubectl port-forward svc/{{ include "webapp.fullname" . }} 8080:{{ .Values.service.port }}
+  Откройте: http://localhost:8080
+{{- end }}
